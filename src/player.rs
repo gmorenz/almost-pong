@@ -5,7 +5,12 @@ use graphics::*;
 
 use XYWH::XYWH;
 
-static SPEED_MULT: f64 = 1.0;
+use constants::{
+    PLAYER_HEIGHT,
+    PLAYER_WIDTH,
+    PLAYER_SPEED,
+    KEY_PRESS_STEP,
+};
 
 enum Dir {
     Down = 1,
@@ -25,34 +30,34 @@ impl Player {
             loc: XYWH {
                 x: x,
                 y: y,
-                w: 0.1,
-                h: 0.5,
+                w: PLAYER_WIDTH,
+                h: PLAYER_HEIGHT,
             },
             dir: None,
         }
     }
 
     fn translate_up( &mut self, d: f64 ) {
-        self.loc.y  += d * SPEED_MULT;
+        self.loc.y  += d * PLAYER_SPEED;
         if self.loc.y + self.loc.h > 1.0 { 
             self.loc.y = 1.0 - self.loc.h
         }
     }
 
     fn translate_down( &mut self, d: f64 ) {
-        self.loc.y -= d * SPEED_MULT;
+        self.loc.y -= d * PLAYER_SPEED;
         if self.loc.y  < -1.0 {
             self.loc.y = -1.0 ;
         }
     }
 
     pub fn move_up( &mut self ) {
-        self.translate_up(0.01);
+        self.translate_up(KEY_PRESS_STEP);
         self.dir = Up;
     }
 
     pub fn move_down( &mut self ) {
-        self.translate_down(0.01);
+        self.translate_down(KEY_PRESS_STEP);
         self.dir = Down;
     }
 

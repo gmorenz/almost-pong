@@ -16,6 +16,7 @@ use piston::{
 
 mod app;
 mod ball;
+mod constants;
 mod player;
 mod XYWH;
 

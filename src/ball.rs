@@ -7,8 +7,10 @@ use graphics::*;
 use player::Player;
 use XYWH::XYWH;
 
-static BALL_WIDTH: f64 = 0.1;
-static BALL_SPEED: f64 = 0.01;
+use constants::{
+    BALL_WIDTH,
+    BALL_SPEED,
+};
 
 pub struct Ball {
     loc: XYWH,

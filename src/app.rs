@@ -13,6 +13,8 @@ use piston::{
 use player::Player;
 use ball::Ball;
 
+use constants::PLAYER_WIDTH;
+
 struct GameState {
     player1: Player,
     player2: Player,
@@ -34,7 +36,7 @@ impl App {
         App {
             state: GameState {
                 player1: Player::new( -0.9 , -0.25 ),
-                player2: Player::new( 0.8, -0.25 ),
+                player2: Player::new( 0.9 - PLAYER_WIDTH, -0.25 ),
                 ball: Ball::new(),
             },
             resources: Resources {
