@@ -50,8 +50,13 @@ impl Ball {
 
     pub fn move( &mut self ) { 
         self.loc.y += self.velocity[1] * BALL_SPEED;
-        if self.loc.y > 1.0 - BALL_WIDTH || self.loc.y < -1.0{
-            self.velocity[1] = self.velocity[1] * -1.0;
+        if self.loc.y > 1.0 - BALL_WIDTH {
+            self.velocity[1] = -self.velocity[1];
+            self.loc.y = 1.0 - BALL_WIDTH;
+        }
+        else if self.loc.y < -1.0 {
+            self.velocity[1] = -self.velocity[1];
+            self.loc.y = -1.0;
         }
 
         self.loc.x += self.velocity[0] * BALL_SPEED;
