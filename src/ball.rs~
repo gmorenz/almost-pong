@@ -1,0 +1,59 @@
+use super::IsCopy;
+
+use XYWH::XYWH;
+
+static BALL_WIDTH: f64 = 0.01;
+static BALL_SPEED: f64 = 0.01;
+
+pub struct Ball {
+    loc: XYWH,
+    velocity: (f64, f64),
+}
+impl IsCopy for Ball {}
+
+impl Ball {
+    pub fn new() {
+        Ball {
+            loc: XYWH {
+                x: -BALL_WIDTH / 2.0,
+                y: -BALL_WIDTH / 2.0,
+                w: BALL_WIDTH,
+                h: BALL_WIDTH,
+            },
+            velocity: (0.0, 0.0),
+        }
+    }
+
+    pub fn start( &mut self ) {
+        self.velocity = (1.0, 0.0)
+    }
+
+    pub fn render( &self ) {
+        c.rect(self.loc.x,
+               self.loc.y,
+               self.loc.w,
+               self.loc.h)
+            .rgb(0.0, 1.0, 0.0).fill( gl );
+    }
+
+    pub fn move( &mut self ) { 
+        self.loc.x += self.velocity[0] * BALL_SPEED;
+        self.loc.y += self.velocity[1] * BALL_SPEED;
+    }
+    
+    pub fn update( &mut self, player1: &Player, player2: &Player ) {
+        self.move();
+        if self.loc.is_touching( player1.loc ) {
+            let d_centers = (self.loc.center_x - player1.loc.center_x) /
+                player1.loc.h;
+            self.velocity = ( d_centers, 
+                              1 - d_centers.sqrt() )
+        }
+        if self.loc.is_touching( player2.loc ) {
+            let d_centers = (self.loc.center_x - player1.loc.center_x) /
+                player2.loc.h;
+            self.velocity = ( d_centers, 
+                              1 - d_centers.sqrt() )
+        }
+    }
+}

@@ -1,0 +1,28 @@
+use super::IsCopy;
+
+use graphics::*
+use piston::Gl;
+
+use XYWH::XYWH;
+
+enum Dir {
+    Down: 1,
+    None: 0,
+    Up: -1,
+}
+
+struct Player {
+    loc: XYWH,
+    dir: Dir,
+}
+impl IsCopy for Player {}
+
+impl Player {
+    pub fn render( c: &Context, gl: &mut Gl ) {
+        c.rect(1.0, 1.0, 1.0, 1.0).draw( gl );
+    }
+
+    pub fn update( dt: f64 ) {
+        loc.y += dt * dir as f64;
+    }
+}

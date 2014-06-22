@@ -1,0 +1,8 @@
+#![feature(globs)]
+
+extern crate graphics;
+extern crate piston;
+
+fn main() {
+    
+}

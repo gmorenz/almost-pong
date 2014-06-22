@@ -1,0 +1,38 @@
+use piston::{
+    Game,
+    RenderArgs,
+    UpdateArgs,
+};
+
+struct GameState {
+
+}
+impl IsCopy for GameState {}
+
+struct Resources {
+
+}
+
+pub struct App {
+    resources: Resources,
+    state: GameState,
+}
+
+impl App {
+    pub fn start() -> App {
+        App {
+            resources: Resources,
+            state: GameState,
+        }
+    }
+}
+
+impl Game for App {
+    fn render( &mut self, args: &mut RenderArgs ) {
+        
+    }
+
+    fn update( &mut self, args: &mut UpdateArgs ) {
+        
+    }
+}
