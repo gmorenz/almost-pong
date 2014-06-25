@@ -7,7 +7,6 @@ extern crate debug;
 use app::App;
 
 use piston::{
-    AssetStore,
     Game,
     GameWindowSDL2,
     GameIteratorSettings,
@@ -39,7 +38,5 @@ fn main() {
     
     let mut app = App::new();
 
-    let mut asset_store = AssetStore::empty();
-
-    app.run( &mut window, &mut asset_store, &iter_settings );
+    app.run( &mut window, &iter_settings );
 }

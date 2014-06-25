@@ -51,7 +51,7 @@ impl Game for App {
         let c = &Context::new();
         let gl = &mut self.resources.gl;
         
-        c.rgb(0.0, 0.0, 0.0).clear(gl);
+        c.rgb(0.0, 0.0, 0.0).draw(gl);
         
         self.state.player1.render( c, gl );
         self.state.player2.render( c, gl );

@@ -45,7 +45,7 @@ impl Ball {
                self.loc.y,
                self.loc.w,
                self.loc.h)
-            .rgb(0.0, 1.0, 0.0).fill( gl );
+            .rgb(0.0, 1.0, 0.0).draw( gl );
     }
 
     pub fn move( &mut self ) { 
