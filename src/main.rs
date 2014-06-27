@@ -45,5 +45,5 @@ fn main() {
 
     let mut render_resources = RenderResources{ gl: Gl::new() };
 
-    app.run( &mut window, &iter_settings, &mut render_resources );
+    app.run( &mut window, iter_settings, render_resources );
 }
