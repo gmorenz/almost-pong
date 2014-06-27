@@ -1,0 +1,25 @@
+[package]
+
+name = "almost-pong"
+version = "0.0.0"
+authors = ["gmorenz <morenzg@gmail.com>"]
+
+[[bin]]
+name = "pong"
+path = "src/main.rs"
+
+[dependencies.graphics]
+
+git = "https://github.com/pistondevelopers/rust-graphics"
+
+[dependencies.piston]
+
+git = "https://github.com/pistondevelopers/piston"
+
+[dependencies.sdl2_game_window]
+
+git = "https://github.com/pistondevelopers/sdl2_game_window"
+
+[dependencies.opengl_graphics]
+
+git = "https://github.com/pistondevelopers/opengl_graphics"
