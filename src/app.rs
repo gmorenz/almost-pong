@@ -37,7 +37,7 @@ impl App {
 }
 
 impl Game<RenderResources> for App {
-    fn render( &mut self, resources: &mut RenderResources, _args: &mut RenderArgs ) {
+    fn render( &self, resources: &mut RenderResources, _args: &RenderArgs ) {
         let c = &Context::new();
         let gl = &mut resources.gl;
         
@@ -48,7 +48,7 @@ impl Game<RenderResources> for App {
         self.ball.render( c, gl );
     }
 
-    fn update( &mut self, args: &mut UpdateArgs ) {
+    fn update( &mut self, args: &UpdateArgs ) {
         self.player1.update( args.dt );
         self.player2.update( args.dt );
         self.ball.update( &self.player1, 
