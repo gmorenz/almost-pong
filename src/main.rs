@@ -12,6 +12,7 @@ use app::{
 use piston::{
     Game,
     GameWindowSDL2,
+    GraphicsWindowSDL2,
     GameIteratorSettings,
     GameWindowSettings,
 };
@@ -27,7 +28,7 @@ mod XYWH;
 pub trait IsCopy: Copy {}
 
 fn main() {
-    let mut window = GameWindowSDL2::new(
+    let (window, graphics_window) = GameWindowSDL2::new(
         GameWindowSettings {
             title: "Image".to_string(),
             size: [300, 300],
@@ -45,5 +46,5 @@ fn main() {
 
     let mut render_resources = RenderResources{ gl: Gl::new() };
 
-    app.run( window, iter_settings, render_resources );
+    app.run( window, graphics_window, iter_settings, render_resources );
 }
