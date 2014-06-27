@@ -4,7 +4,10 @@ extern crate graphics;
 extern crate piston;
 extern crate debug;
 
-use app::App;
+use app::{
+    App,
+    RenderResources
+};
 
 use piston::{
     Game,
@@ -12,6 +15,8 @@ use piston::{
     GameIteratorSettings,
     GameWindowSettings,
 };
+
+use graphics::Gl;
 
 mod app;
 mod ball;
@@ -36,7 +41,9 @@ fn main() {
         max_frames_per_second: 60,
     };
     
-    let mut app = App::new();
+    let app = App::new();
 
-    app.run( &mut window, &iter_settings );
+    let mut render_resources = RenderResources{ gl: Gl::new() };
+
+    app.run( &mut window, &iter_settings, &mut render_resources );
 }
