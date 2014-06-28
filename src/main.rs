@@ -3,6 +3,8 @@
 extern crate graphics;
 extern crate piston;
 extern crate debug;
+extern crate sdl2_game_window;
+extern crate opengl_graphics;
 
 use app::{
     App,
@@ -10,14 +12,16 @@ use app::{
 };
 
 use piston::{
-    Game,
-    GameWindowSDL2,
-    GraphicsWindowSDL2,
+    ConcurrentGame,
     GameIteratorSettings,
     GameWindowSettings,
 };
 
-use graphics::Gl;
+use sdl2_game_window::{
+    ConcurrentWindowSDL2,
+};
+
+use opengl_graphics::Gl;
 
 mod app;
 mod ball;
@@ -28,7 +32,7 @@ mod XYWH;
 pub trait IsCopy: Copy {}
 
 fn main() {
-    let (window, graphics_window) = GameWindowSDL2::new(
+    let (game_window, render_window) = ConcurrentWindowSDL2::new(
         GameWindowSettings {
             title: "Image".to_string(),
             size: [300, 300],
@@ -44,7 +48,7 @@ fn main() {
     
     let app = App::new();
 
-    let mut render_resources = RenderResources{ gl: Gl::new() };
+    let render_resources = RenderResources{ gl: Gl::new() };
 
-    app.run( window, graphics_window, iter_settings, render_resources );
+    app.run( game_window, render_window, iter_settings, render_resources );
 }

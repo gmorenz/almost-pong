@@ -3,12 +3,13 @@ use super::IsCopy;
 use graphics::*;
 use piston::keyboard;
 use piston::{
-    Game,
+    ConcurrentGame,
     KeyPressArgs,
     KeyReleaseArgs,
     RenderArgs,
     UpdateArgs,
 };
+use opengl_graphics::Gl;
 
 use player::Player;
 use ball::Ball;
@@ -36,7 +37,7 @@ impl App {
     }
 }
 
-impl Game<RenderResources> for App {
+impl ConcurrentGame<RenderResources> for App {
     fn render( &self, resources: &mut RenderResources, _args: &RenderArgs ) {
         let c = &Context::new();
         let gl = &mut resources.gl;

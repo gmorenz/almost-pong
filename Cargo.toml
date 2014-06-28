@@ -14,11 +14,11 @@ git = "https://github.com/pistondevelopers/rust-graphics"
 
 [dependencies.piston]
 
-git = "https://github.com/pistondevelopers/piston"
+git = "file:///home/normal/side/rust/piston/workspace/piston"
 
 [dependencies.sdl2_game_window]
 
-git = "https://github.com/pistondevelopers/sdl2_game_window"
+git = "file:///home/normal/side/rust/piston/workspace/sdl2_game_window"
 
 [dependencies.opengl_graphics]
 

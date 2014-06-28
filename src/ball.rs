@@ -3,6 +3,7 @@ use super::IsCopy;
 use std::num::abs;
 
 use graphics::*;
+use opengl_graphics::Gl;
 
 use player::Player;
 use XYWH::XYWH;
