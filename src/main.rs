@@ -32,7 +32,7 @@ mod XYWH;
 pub trait IsCopy: Copy {}
 
 fn main() {
-    let (game_window, render_window) = ConcurrentWindowSDL2::new(
+    let window = ConcurrentWindowSDL2::new(
         GameWindowSettings {
             title: "Image".to_string(),
             size: [300, 300],
@@ -50,5 +50,5 @@ fn main() {
 
     let render_resources = RenderResources{ gl: Gl::new() };
 
-    app.run( game_window, render_window, iter_settings, render_resources );
+    app.run( window, iter_settings, render_resources );
 }
